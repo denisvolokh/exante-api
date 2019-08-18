@@ -1,0 +1,61 @@
+{
+  "http_interactions": [
+    {
+      "recorded_at": "2019-08-17T09:09:06",
+      "request": {
+        "body": {
+          "encoding": "utf-8",
+          "string": ""
+        },
+        "headers": {
+          "Accept": [
+            "*/*"
+          ],
+          "Accept-Encoding": [
+            "gzip, deflate"
+          ],
+          "Connection": [
+            "keep-alive"
+          ],
+          "User-Agent": [
+            "python-requests/2.22.0"
+          ],
+          "authorization": [
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiMjVlZmExMC04NjJkLTRjODItYjYyZi0yZGZmMWU4NmZiOTYiLCJzdWIiOiI2NzJhMzU5ZC02NmZlLTQyY2ItYTFjZi1iNGQ3ZjcwNmY3ODQiLCJpYXQiOjE1NjYwMzI5NDQsImV4cCI6MTU2NjAzNjU0NCwiYXVkIjpbInN5bWJvbHMiLCJjaGFuZ2UiLCJjcm9zc3JhdGVzIiwiZmVlZCIsImFjY291bnRzIiwic3VtbWFyeSIsIm9yZGVycyJdfQ.ZIcCGyHbXM4BZAhQNbc9v3lP_3bNm3V2z-fLKhNqMw8"
+          ]
+        },
+        "method": "GET",
+        "uri": "https://api-demo.exante.eu/md/1.0/accounts"
+      },
+      "response": {
+        "body": {
+          "base64_string": "H4sIAAAAAAAAAIquViouSSwpLVayUnIrzclR0lFKTE7OL80r8UwBCoW4BZoZm5noGRiaKNXqEKnWwJIEtcbEqzU0IEEtCeYaGJGg1pQEtYYkuJcUN5iRoNacBLUWJKglIT0YkhBmhsAwiwUAAAD//wMAr/6Wi5UCAAA=",
+          "encoding": null
+        },
+        "headers": {
+          "Content-Encoding": [
+            "gzip"
+          ],
+          "Content-Type": [
+            "application/json"
+          ],
+          "Date": [
+            "Sat, 17 Aug 2019 09:09:06 GMT"
+          ],
+          "Server": [
+            "nginx"
+          ],
+          "Transfer-Encoding": [
+            "chunked"
+          ]
+        },
+        "status": {
+          "code": 200,
+          "message": "OK"
+        },
+        "url": "https://api-demo.exante.eu/md/1.0/accounts"
+      }
+    }
+  ],
+  "recorded_with": "betamax/0.8.1"
+}
