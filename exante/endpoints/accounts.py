@@ -9,10 +9,11 @@ class Accounts(APIRequest):
     ENDPOINT = "/1.0/accounts"
     METHOD = "GET"
     SCOPE = "DATA"
+    EXPECTED_STATUS = 200
 
     def __init__(self):
         super(Accounts, self).__init__(
-            self.ENDPOINT, method=self.METHOD, scope=self.SCOPE
+            self.ENDPOINT, method=self.METHOD, scope=self.SCOPE, expected_status=self.EXPECTED_STATUS
         )
 
 
