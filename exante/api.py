@@ -1,4 +1,5 @@
 import requests
+from
 
 from .endpoints.apirequest import APIRequest
 from .exceptions import APIError, BadEnvironment
@@ -127,7 +128,7 @@ class ExanteAPI(object):
                 data = json.loads(line.decode("utf-8"))
                 yield data
 
-    def request(self, endpoint: APIRequest) -> dict:
+    def request(self, endpoint: APIRequest) -> :
         """
             Perform a request for the APIRequest instance 'endpoint'
 
@@ -174,6 +175,10 @@ class ExanteAPI(object):
                 data_params=data_params,
                 headers=header,
             )
+
             content = response.json()
 
-            return content
+            endpoint.response = content
+            endpoint.status_code = response.status_code
+
+            return response

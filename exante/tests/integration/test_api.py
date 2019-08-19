@@ -44,8 +44,11 @@ class TestSaxoOpenAPI(object):
         cassette_name = self.generate_cassette_name("accounts_list")
         with self.recorder.use_cassette(cassette_name):
             accounts_list_response = self.client.request(accounts_list_request)
+            content = accounts_list_response.json()
 
-        assert isinstance(accounts_list_response, list) == True
+        assert accounts_list_response.status_code == accounts_list_request.expected_status
+        assert isinstance(accounts_list_request.response, list) == True
+        assert accounts_list_request.response == content
 
     # def test__account_details(self):
     #     pass
