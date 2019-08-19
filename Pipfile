@@ -13,11 +13,12 @@ python-dotenv = "*"
 betamax-serializers = "*"
 pytest-cov = "*"
 coverage = "*"
+python-coveralls = "==2.9.3"
 
 [packages]
 requests = "*"
 pyjwt = "*"
-python-coveralls = "*"
+python-coveralls = "==2.9.3"
 
 [requires]
 python_version = "3.7"
