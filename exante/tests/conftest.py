@@ -9,7 +9,7 @@ from exante.definitions.environment import Environment
 betamax.Betamax.register_serializer(pretty_json.PrettyJSONSerializer)
 
 with betamax.Betamax.configure() as config:
-    config.cassette_library_dir = "tests/integration/cassettes"
+    config.cassette_library_dir = "exante/tests/integration/cassettes"
     config.default_cassette_options["serialize_with"] = "prettyjson"
 
 
