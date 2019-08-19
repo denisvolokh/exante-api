@@ -11,6 +11,8 @@ black = "==19.3b0"
 isort = "*"
 python-dotenv = "*"
 betamax-serializers = "*"
+pytest-cov = "*"
+coverage = "*"
 
 [packages]
 requests = "*"
