@@ -127,7 +127,7 @@ class ExanteAPI(object):
                 data = json.loads(line.decode("utf-8"))
                 yield data
 
-    def request(self, endpoint: APIRequest) -> :
+    def request(self, endpoint: APIRequest):
         """
             Perform a request for the APIRequest instance 'endpoint'
 
