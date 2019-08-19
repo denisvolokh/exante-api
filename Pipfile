@@ -17,6 +17,7 @@ coverage = "*"
 [packages]
 requests = "*"
 pyjwt = "*"
+python-coveralls = "*"
 
 [requires]
 python_version = "3.7"

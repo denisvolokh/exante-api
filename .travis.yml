@@ -9,6 +9,8 @@ install:
 script:
   - pipenv run pytest exante/tests
 
-after_success: coverage report
+after_success:
+  - coverage report
+  - coveralls
 
 
