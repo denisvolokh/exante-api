@@ -1,5 +1,5 @@
-from exante_api.endpoints.payloads.basepayload import BasePayload
-from exante_api.definitions.orders import OrderSide, OrderType, OrderDuration
+from exante.endpoints.payloads.basepayload import BasePayload
+from exante.definitions.orders import OrderSide, OrderType, OrderDuration
 
 
 class MarketOrder(BasePayload):
