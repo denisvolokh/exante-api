@@ -1,6 +1,6 @@
 import setuptools
 
-import exanteapi
+import exante
 
 packages = setuptools.find_packages(exclude=[
     'tests',
