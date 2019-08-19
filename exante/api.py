@@ -1,5 +1,4 @@
 import requests
-from
 
 from .endpoints.apirequest import APIRequest
 from .exceptions import APIError, BadEnvironment
