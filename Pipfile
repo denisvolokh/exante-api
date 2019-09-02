@@ -14,6 +14,9 @@ betamax-serializers = "*"
 pytest-cov = "*"
 coverage = "*"
 python-coveralls = "==2.9.3"
+pytest-dotenv = "*"
+mypy = "*"
+pre-commit = "*"
 
 [packages]
 requests = "*"

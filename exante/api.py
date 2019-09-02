@@ -1,11 +1,13 @@
+import json
+import logging
+import time
+from typing import Dict, Optional
+
+import jwt
 import requests
 
 from .endpoints.apirequest import APIRequest
 from .exceptions import APIError, BadEnvironment
-
-import time
-import jwt
-import json
 
 ENVIRONMENTS = {
     "DEMO": {
@@ -15,6 +17,10 @@ ENVIRONMENTS = {
     },
     "LIVE": {"DATA": "", "TRADE": ""},
 }
+
+
+logger = logging.getLogger("api")
+logger.setLevel(level=logging.DEBUG)
 
 
 class ExanteAPI(object):
@@ -87,7 +93,7 @@ class ExanteAPI(object):
         query_params: dict,
         data_params: dict,
         headers: dict = None,
-    ) -> requests.Response:
+    ) -> Optional[requests.Response]:
         """
             Makes HTTP request to endpoint
         """
@@ -102,11 +108,10 @@ class ExanteAPI(object):
         if method == "GET":
             response = self.session.get(url=url, params=query_params, headers=headers)
 
+            logger.info(response)
+
         if method == "POST":
             response = self.session.post(url=url, json=data_params, headers=headers)
-
-        if response.status_code >= 400:
-            raise APIError(response.status_code, response.content.decode("utf-8"))
 
         return response
 
@@ -150,7 +155,7 @@ class ExanteAPI(object):
         except AttributeError:
             data_params = {}
 
-        header = {}
+        header = {}  # type: Dict[str,str]
 
         if hasattr(endpoint, "HEADER"):
             header = getattr(endpoint, "HEADER")
@@ -166,7 +171,7 @@ class ExanteAPI(object):
 
             return response
 
-        else:
+        if scope in ["DATA", "TRADE"]:
             response = self.__make_request(
                 method=method,
                 url=url,
@@ -175,9 +180,11 @@ class ExanteAPI(object):
                 headers=header,
             )
 
-            content = response.json()
+            if response.status_code >= 400:
+                raise APIError(response.status_code, response.content.decode("utf-8"))
 
-            endpoint.response = content
+            content = response.json()
+            endpoint.response = response
             endpoint.status_code = response.status_code
 
-            return response
+            return content

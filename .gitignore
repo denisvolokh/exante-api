@@ -1,5 +1,13 @@
 .idea
+.vscode
 .pytest_cache
+
+__pycache__
+.mypy_cache
 
 htmlcov
 .coverage
+.test.env
+.env
+.test.env
+exante/tests/integration/cassettes/*.json

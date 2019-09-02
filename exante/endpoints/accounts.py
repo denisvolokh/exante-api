@@ -13,18 +13,26 @@ class Accounts(APIRequest):
 
     def __init__(self):
         super(Accounts, self).__init__(
-            self.ENDPOINT, method=self.METHOD, scope=self.SCOPE, expected_status=self.EXPECTED_STATUS
+            self.ENDPOINT,
+            method=self.METHOD,
+            scope=self.SCOPE,
+            expected_status=self.EXPECTED_STATUS,
         )
 
 
-class AccountSummary(Accounts):
+class AccountSummary(APIRequest):
     """
         Account summary
     """
 
     ENDPOINT = "/1.0/summary/{account_id}/{currency}"
+    METHOD = "GET"
+    SCOPE = "DATA"
+    EXPECTED_STATUS = 200
 
     def __init__(self, account_id: str, currency: str = "EUR"):
         endpoint = self.ENDPOINT.format(account_id=account_id, currency=currency)
 
-        super(Accounts, self).__init__(endpoint, method=self.METHOD, scope=self.SCOPE)
+        super(AccountSummary, self).__init__(
+            endpoint, method=self.METHOD, scope=self.SCOPE
+        )

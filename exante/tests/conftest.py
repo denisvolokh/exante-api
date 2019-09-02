@@ -1,10 +1,13 @@
+import logging
 import os
-import pytest
+
 import betamax
+import pytest
 from betamax_serializers import pretty_json
+
 from exante.api import ExanteAPI
-from exante.definitions.scope import Scope
 from exante.definitions.environment import Environment
+from exante.definitions.scope import Scope
 
 betamax.Betamax.register_serializer(pretty_json.PrettyJSONSerializer)
 
@@ -13,16 +16,21 @@ with betamax.Betamax.configure() as config:
     config.default_cassette_options["serialize_with"] = "prettyjson"
 
 
-SHARED_KEY = os.getenv("EXANTE__SHARED_KEY", "foo")
-CLIENT_ID = os.getenv("EXANTE__CLIENT_ID", "foo")
-APPLICATION_ID = os.getenv("EXANTE__APPLICATION_ID", "foo")
+SHARED_KEY = os.getenv("EXANTE__SHARED_KEY", None)
+CLIENT_ID = os.getenv("EXANTE__CLIENT_ID", None)
+APPLICATION_ID = os.getenv("EXANTE__APPLICATION_ID", None)
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("ig.tests.conftest")
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def exante_api_demo_client():
     """
         Returns a Exante API instance for DEMO environment
     """
+
+    logger.info(f"[+] Clinet ID from .test.env: {CLIENT_ID}")
 
     api_client = ExanteAPI(
         client_id=CLIENT_ID,
