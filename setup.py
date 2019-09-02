@@ -3,9 +3,9 @@ import setuptools
 import exante
 
 packages = setuptools.find_packages(exclude=[
-    'tests',
-    'tests.integration',
-    'tests.unit'
+    'exante.tests',
+    'exante.tests.integration',
+    'exante.tests.unit'
 ])
 requires = [
     'requests'
